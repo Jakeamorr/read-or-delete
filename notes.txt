@@ -1,0 +1,11 @@
+- New tab page will be a list of links that you want to revisit
+- The catch will be that these links will be purged after a set amount of time (week? 2 weeks? month?)
+- Clicking the toolbar icon for the extension will add the current web address to the list
+    may want a small popup of some kind to notify user the page was successfully added
+    * may want to have two separate actions:
+        - if the current page is part of the list show a checkmark that can be clicked to remove it from the list
+        - if the current page is not part of the list show a plus sign that can be clicked to add it to the list
+- Potentially add a small reminder that popups up to let the user know when one of their entries is about to be removed
+- Maybe add an archive feature that is a collection of all read articles in case you wish to reference them again
+
+Tagline - Are you a tab hoarder?

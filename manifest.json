@@ -1,0 +1,13 @@
+{
+  "name": "Read or Delete",
+  "description": "A simple extension that encourages you to either read that article that has been in your tabs for two weeks or get rid of it",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {},
+  "chrome_url_overrides": {
+    "newtab": "collection.html"
+  }
+}
