@@ -6,7 +6,9 @@
   "background": {
     "service_worker": "background.js"
   },
-  "action": {},
+  "action": {
+    "default_title": "Click to add article to list"
+  },
   "chrome_url_overrides": {
     "newtab": "collection.html"
   },
@@ -15,5 +17,5 @@
     "48": "images/logo_48.png",
     "128": "images/logo_128.png"
   },
-  "permissions": ["storage"]
+  "permissions": ["activeTab", "scripting", "storage", "tabs"]
 }

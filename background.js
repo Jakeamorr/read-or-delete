@@ -4,24 +4,20 @@ chrome.runtime.onInstalled.addListener(async () => {
   let url = chrome.runtime.getURL("collection.html");
   let tab = await chrome.tabs.create({ url });
 
-  chrome.storage.sync.set({ articles: ["a", "b"] });
-  chrome.storage.sync.get(["articles"], (res) => {
-    console.log("Articles value is: " + res.articles);
-  });
-
-  chrome.storage.sync.set({ articles: ["a", "b", "c"] });
-
-  chrome.storage.sync.get(["articles"], (res) => {
-    console.log("Articles value is: " + res.articles);
+  // Set the property for storing articles on install if not already present in sync storage
+  chrome.storage.sync.get(["rod_articles"], (res) => {
+    if (Object.keys(res).length === 0)
+      chrome.storage.sync.set({ rod_articles: [] });
   });
 
   console.log(`Created new tab ${tab.id}`);
 });
 
-// chrome.action.onClicked.addListener(async (tab) => {
-//   tab.url;
-//   let articles = chrome.storage.sync.get("articles");
-//   articles.push(tab.url);
-//   chrome.storage.sync.set({ articles });
-//   console.log(articles);
-// });
+chrome.action.onClicked.addListener((tab) => {
+  chrome.storage.sync.get(["rod_articles"], (res) => {
+    res.rod_articles.push(tab.url);
+    chrome.storage.sync.set({ rod_articles: res.rod_articles });
+  });
+
+  console.log(`added ${tab.url} to articles list`);
+});
