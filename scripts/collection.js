@@ -8,8 +8,12 @@ chrome.storage.sync.get(["rod_articles"], (res) => {
     list.firstElementChild.remove();
     // Iterate through articles and add them to the list
     for (index in res.rod_articles) {
+      // Create link and place in list element
       const newListItem = document.createElement("li");
-      newListItem.textContent = res.rod_articles[index];
+      const newLink = document.createElement("a");
+      newLink.setAttribute("href", res.rod_articles[index]);
+      newLink.textContent = res.rod_articles[index];
+      newListItem.appendChild(newLink);
       list.appendChild(newListItem);
     }
   }
