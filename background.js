@@ -19,5 +19,14 @@ chrome.action.onClicked.addListener((tab) => {
     chrome.storage.sync.set({ rod_articles: res.rod_articles });
   });
 
+  chrome.action.setIcon({
+    path: "images/logo_16_green.png",
+    tabId: tab.tabId,
+  });
+
   console.log(`added ${tab.url} to articles list`);
 });
+
+// chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+//   console.log(`${tab} has been updated`);
+// });
